@@ -27,6 +27,8 @@ The JSON file must contain a `notes` array. Each note event uses seconds from th
 
 Intervals include their start time and exclude their end time. Annotations must fall within the audio duration and configured MIDI pitch range. Mono or stereo PCM/float WAV files are accepted; stereo channels are averaged to mono.
 
+`examples/standard_tuning_calibration_notes.json` provides a 176-second calibration schedule for standard guitar tuning (E2, A2, D3, G3, B3, E4). It expects 132 individual string/fret notes ordered globally by pitch, one pluck each second, followed immediately by 22 six-string same-fret strums, one every two seconds. Start each event at its listed time; each label ends at the next event in its section. For training with this file, set `--midi-min 40 --midi-max 85` and record the WAV to cover the full schedule.
+
 ## Train a model
 
 ```bash
